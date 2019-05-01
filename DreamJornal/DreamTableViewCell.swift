@@ -9,7 +9,14 @@
 import UIKit
 
 class DreamTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var cellTitleLabel: UILabel!
+    
+    @IBOutlet weak var imageCell: UIImageView!
+    
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

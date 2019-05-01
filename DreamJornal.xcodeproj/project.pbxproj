@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FBE11DCB22639DF700645462 /* MapDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE11DCA22639DF700645462 /* MapDreamViewController.swift */; };
+		FBE11DCE2263A96D00645462 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE11DCD2263A96D00645462 /* CoreLocation.framework */; };
 		FBFB71A42263106E00B01352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB71A32263106E00B01352 /* AppDelegate.swift */; };
 		FBFB71A62263106E00B01352 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB71A52263106E00B01352 /* ViewController.swift */; };
 		FBFB71A92263106E00B01352 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFB71A72263106E00B01352 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		FBFB71B12263109E00B01352 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFB71AF2263109E00B01352 /* LaunchScreen.storyboard */; };
 		FBFB71BC226310A200B01352 /* DreamJornalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB71BB226310A200B01352 /* DreamJornalTests.swift */; };
 		FBFB71C7226310A200B01352 /* DreamJornalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB71C6226310A200B01352 /* DreamJornalUITests.swift */; };
+		FBFB71D522631CF500B01352 /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB71D422631CF500B01352 /* DreamTableViewCell.swift */; };
+		FBFB71D722631D6000B01352 /* EditDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB71D622631D6000B01352 /* EditDreamViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FBE11DCA22639DF700645462 /* MapDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDreamViewController.swift; sourceTree = "<group>"; };
+		FBE11DCD2263A96D00645462 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FBFB71A02263106D00B01352 /* DreamJornal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamJornal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBFB71A32263106E00B01352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBFB71A52263106E00B01352 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		FBFB71C2226310A200B01352 /* DreamJornalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreamJornalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBFB71C6226310A200B01352 /* DreamJornalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamJornalUITests.swift; sourceTree = "<group>"; };
 		FBFB71C8226310A200B01352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBFB71D422631CF500B01352 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
+		FBFB71D622631D6000B01352 /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE11DCE2263A96D00645462 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FBE11DCC2263A96C00645462 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBE11DCD2263A96D00645462 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FBFB71972263106C00B01352 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +100,7 @@
 				FBFB71BA226310A200B01352 /* DreamJornalTests */,
 				FBFB71C5226310A200B01352 /* DreamJornalUITests */,
 				FBFB71A12263106D00B01352 /* Products */,
+				FBE11DCC2263A96C00645462 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +119,14 @@
 			children = (
 				FBFB71A32263106E00B01352 /* AppDelegate.swift */,
 				FBFB71A52263106E00B01352 /* ViewController.swift */,
-				FBFB71A72263106E00B01352 /* Main.storyboard */,
+				FBE11DCA22639DF700645462 /* MapDreamViewController.swift */,
+				FBFB71D622631D6000B01352 /* EditDreamViewController.swift */,
 				FBFB71AD2263109E00B01352 /* Assets.xcassets */,
+				FBFB71A72263106E00B01352 /* Main.storyboard */,
 				FBFB71AF2263109E00B01352 /* LaunchScreen.storyboard */,
 				FBFB71B22263109E00B01352 /* Info.plist */,
 				FBFB71AA2263106E00B01352 /* DreamJornal.xcdatamodeld */,
+				FBFB71D422631CF500B01352 /* DreamTableViewCell.swift */,
 			);
 			path = DreamJornal;
 			sourceTree = "<group>";
@@ -261,7 +282,10 @@
 			files = (
 				FBFB71A62263106E00B01352 /* ViewController.swift in Sources */,
 				FBFB71A42263106E00B01352 /* AppDelegate.swift in Sources */,
+				FBFB71D722631D6000B01352 /* EditDreamViewController.swift in Sources */,
 				FBFB71AC2263106E00B01352 /* DreamJornal.xcdatamodeld in Sources */,
+				FBFB71D522631CF500B01352 /* DreamTableViewCell.swift in Sources */,
+				FBE11DCB22639DF700645462 /* MapDreamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F9DKA4YJS;
 				INFOPLIST_FILE = DreamJornal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = se.larssonadriana.DreamJornal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -454,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F9DKA4YJS;
 				INFOPLIST_FILE = DreamJornal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,7 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = se.larssonadriana.DreamJornal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
