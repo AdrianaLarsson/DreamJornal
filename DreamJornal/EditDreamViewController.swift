@@ -20,17 +20,21 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     @IBOutlet weak var imageEdit: UIImageView!
     
   var changingData:NSManagedObject!
+    var lastSavedLocation:String?
     
       var newDiary = DreamDiaryCoreData()
     var new: DreamDiaryCoreData? = nil
+    
     var dreamArray: [DreamDiaryCoreData] = []
 
        var i = 0
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-  
+       
+        
+        
         
         
         
@@ -43,27 +47,22 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
         if changingData != nil{
             
             titleEditTextField.text = changingData.value(forKey: "title") as? String
-
             editTextViewDream.text = (changingData.value(forKey: "editText") as! String)
+             lastSavedLocation = changingData.value(forKey: "address") as? String
+            
             
             //            if let img = newDiary.image {
             //                self.editImage.image = UIImage(data: img as Data)
             //            }
-            if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
-                //newDiary.images = jpegData
-                changingData.setValue(jpegData, forKey: "thumb")
-                changingData.setValue(jpegData, forKey: "images")
-                
-            }
-            
-        }
+      
      
-        
+        }
        
         
     
     }
-    // when i press outside oft the texview, the keyborad goes away and when 1 press the return, when i write in textfiled, the keybord goes away
+    // when i press outside oft the texview, the keyborad goes away and when i press the return, when i write in textfiled, the keybord goes away
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
@@ -84,31 +83,40 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             
             newDiary.title = titleEditTextField.text ?? ""
             newDiary.editText = editTextViewDream.text ?? ""
-              
             
+            
+            if lastSavedLocation != nil {
+                newDiary.address = lastSavedLocation
+            }
             
             if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
                 newDiary.images = jpegData
+                newDiary.thumb = jpegData
                 
-                
-            }
-            if let image = imageEdit.image {
-                UIGraphicsBeginImageContext(CGSize(width: 80, height: 80))
-                let ratio = image.size.width/image.size.height
-                let scaleWidth = ratio*80
-                let offsetX = (scaleWidth-80)/2
-                image.draw(in: CGRect(x: -offsetX, y: 0, width: scaleWidth, height: 80))
-                let thumb = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                
-                if let thumb = thumb, let jpegData = thumb.jpegData(compressionQuality: 0.8) {
-                    newDiary.thumb = jpegData
-                    
-                    dismiss(animated: true, completion: nil)
-                    navigationController?.popViewController(animated: true)
-                }
             }
             
+//            if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+//                newDiary.images = jpegData
+//
+//
+//            }
+//            if let image = imageEdit.image {
+//                UIGraphicsBeginImageContext(CGSize(width: 80, height: 80))
+//                let ratio = image.size.width/image.size.height
+//                let scaleWidth = ratio*100
+//                let offsetX = (scaleWidth-100)/2
+//            image.draw(in: CGRect(x: -offsetX, y: 0, width: scaleWidth, height: 80))
+//                let thumb = UIGraphicsGetImageFromCurrentImageContext()
+//                //UIGraphicsEndImageContext()
+//
+//                if let thumb = thumb, let jpegData = thumb.jpegData(compressionQuality: 0.8) {
+//                    newDiary.thumb = jpegData
+//
+//                    dismiss(animated: true, completion: nil)
+//                    navigationController?.popViewController(animated: true)
+//                }
+//            }
+//
             
             appDelegate.saveContext()
             navigationController?.popViewController(animated: true)
@@ -215,7 +223,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
                 changingData.setValue(jpegData, forKey: "images")
                 
                 }
-            
+            changingData.setValue(lastSavedLocation, forKey: "address")
             
             appDelegate.saveContext()
           
@@ -228,10 +236,31 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     
 
     
+        
+}
+    
+    @IBAction func openMap(_ sender: Any) {
+        let viewC = self.storyboard?.instantiateViewController(withIdentifier: "MapDreamViewController") as? MapDreamViewController
+        if lastSavedLocation != nil{
+            viewC!.lastSaveLocation = self.lastSavedLocation
+        }
+        viewC?.delegate = self
+        self.navigationController?.pushViewController(viewC!, animated: true)
+    }
+    
+    
+}
+
+extension EditDreamViewController:LocationSelectedDelegate {
+    func selectedLocation(address: String) {
+        self.lastSavedLocation = address
+    }
+    
+    
 }
 
 
-}
+
             
             
             

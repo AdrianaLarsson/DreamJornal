@@ -242,17 +242,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
         
-        else if segue.identifier == "showMap"{
-            if segue.destination is MapDreamViewController{
-                if (sender as? Int) != nil{
-                    
-                    dreamArray[myTableView.indexPathForSelectedRow!.row] as?
-                    NSManagedObject
-                }
-        
-    }
-        }
-
+//        else if segue.identifier == "showMap"{
+//            if segue.destination is MapDreamViewController{
+//                if (sender as? Int) != nil{
+//
+//                    dreamArray[myTableView.indexPathForSelectedRow!.row] as?
+//                    NSManagedObject
+//                }
+//
+//    }
+//        }
+//
 }
  
     
