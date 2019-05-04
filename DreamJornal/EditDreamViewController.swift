@@ -49,9 +49,15 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             //            if let img = newDiary.image {
             //                self.editImage.image = UIImage(data: img as Data)
             //            }
-            
+            if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+                //newDiary.images = jpegData
+                changingData.setValue(jpegData, forKey: "thumb")
+                changingData.setValue(jpegData, forKey: "images")
+                
+            }
             
         }
+     
         
        
         
@@ -200,22 +206,32 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
            // if let img = newDiary.images {
              //                  self.imageEdit.image = UIImage(data: img as Data)
                //            }
-            changingData.setValue(imageEdit, forKey: "images")
+            //changingData.setValue(imageEdit, forKey: "images")
+            
+            
+            if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+                //newDiary.images = jpegData
+                changingData.setValue(jpegData, forKey: "thumb")
+                changingData.setValue(jpegData, forKey: "images")
+                
+                }
             
             
             appDelegate.saveContext()
           
-        }
+        
         
         
     }
+    
+    
     
 
     
 }
 
 
-
+}
             
             
             
