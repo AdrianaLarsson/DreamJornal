@@ -56,7 +56,15 @@ class MapDreamViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
             
             
         }
-
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        address = addressMap.text!
+        addressSaving()
+        print(address)
+        pointThatLocation()
         
     }
     // points to location if location is already to current cell
@@ -69,6 +77,12 @@ class MapDreamViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
         self.addressMap.resignFirstResponder()
+        
+        address = addressMap.text!
+        addressSaving()
+        print(address)
+        pointThatLocation()
+        
     }
     
 
@@ -84,7 +98,7 @@ class MapDreamViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         pointThatLocation()
         
     
-        
+         navigationController?.popViewController(animated: true)
         
         
     }

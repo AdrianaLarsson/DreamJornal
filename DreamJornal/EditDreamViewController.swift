@@ -34,7 +34,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
         
        
         
-        
+    
         
         
         
@@ -50,6 +50,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             editTextViewDream.text = (changingData.value(forKey: "editText") as! String)
              lastSavedLocation = changingData.value(forKey: "address") as? String
             
+         
             
             //            if let img = newDiary.image {
             //                self.editImage.image = UIImage(data: img as Data)
@@ -57,16 +58,21 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
       
      
         }
-       
+    
+     
         
+       
     
     }
+    
+  
     // when i press outside oft the texview, the keyborad goes away and when i press the return, when i write in textfiled, the keybord goes away
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
         self.editTextViewDream.resignFirstResponder()
+        
     }
 
     
@@ -255,7 +261,7 @@ extension EditDreamViewController:LocationSelectedDelegate {
     func selectedLocation(address: String) {
         self.lastSavedLocation = address
     }
-    
+   
     
 }
 
