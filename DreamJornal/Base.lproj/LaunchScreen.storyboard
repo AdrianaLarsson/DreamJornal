@@ -18,15 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Catch Your Dreams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4T-Gi-VM8">
-                                <rect key="frame" x="0.0" y="141" width="414" height="114"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="47"/>
-                                <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="highlightedColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="shadowColor" red="1" green="0.58978611250000001" blue="0.59980753060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="shadowOffset" width="4" height="-1"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="zno-AQ-i7m">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="zno-AQ-i7m">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="7Fh-Ry-ZKI"/>
@@ -35,23 +27,28 @@
                                     <constraint firstAttribute="height" constant="896" id="Yzn-2g-ojI"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catch Your Dreams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmV-WM-g0r">
+                                <rect key="frame" x="20" y="147" width="374" height="129"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="129" id="Ijy-jG-jcQ"/>
+                                    <constraint firstAttribute="width" constant="374" id="RS0-xS-27A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96457237005233765" green="0.88068002462387085" blue="0.86586016416549683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Y4T-Gi-VM8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="410-su-X0H"/>
                             <constraint firstItem="zno-AQ-i7m" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6mI-Wd-o4j"/>
-                            <constraint firstItem="Y4T-Gi-VM8" firstAttribute="centerY" secondItem="zno-AQ-i7m" secondAttribute="centerY" id="AaR-xr-dg2"/>
-                            <constraint firstItem="Y4T-Gi-VM8" firstAttribute="leading" secondItem="zno-AQ-i7m" secondAttribute="trailing" constant="-414" id="KXz-a1-lR5"/>
+                            <constraint firstItem="mmV-WM-g0r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="103" id="KsJ-ud-X6t"/>
                             <constraint firstItem="zno-AQ-i7m" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OuF-oz-5r2"/>
                             <constraint firstItem="zno-AQ-i7m" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RXW-rD-e2y"/>
                             <constraint firstItem="zno-AQ-i7m" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Wul-Yf-EFc"/>
                             <constraint firstAttribute="bottom" secondItem="zno-AQ-i7m" secondAttribute="bottom" id="eZs-8R-WoB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y4T-Gi-VM8" secondAttribute="trailing" id="gBi-qE-E42"/>
-                            <constraint firstItem="zno-AQ-i7m" firstAttribute="top" secondItem="Y4T-Gi-VM8" secondAttribute="bottom" constant="-255" id="gkp-ob-g2y"/>
-                            <constraint firstItem="Y4T-Gi-VM8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hq7-kl-kgl"/>
                             <constraint firstItem="zno-AQ-i7m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="m3V-0f-Z2s"/>
-                            <constraint firstItem="Y4T-Gi-VM8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pjj-ig-elj"/>
-                            <constraint firstItem="Y4T-Gi-VM8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zUh-QZ-pPa"/>
+                            <constraint firstItem="mmV-WM-g0r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nVR-8k-B30"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mmV-WM-g0r" secondAttribute="trailing" constant="20" id="o9P-qR-gXK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

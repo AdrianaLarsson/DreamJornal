@@ -56,7 +56,7 @@
 		FBFB71C6226310A200B01352 /* DreamJornalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamJornalUITests.swift; sourceTree = "<group>"; };
 		FBFB71C8226310A200B01352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBFB71D422631CF500B01352 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
-		FBFB71D622631D6000B01352 /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
+		FBFB71D622631D6000B01352 /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
