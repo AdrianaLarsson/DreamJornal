@@ -50,7 +50,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             editTextViewDream.text = (changingData.value(forKey: "editText") as! String)
              lastSavedLocation = changingData.value(forKey: "address") as? String
             
-         
+            
             
             //            if let img = newDiary.image {
             //                self.editImage.image = UIImage(data: img as Data)
@@ -60,7 +60,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
         }
     
      
-        
+    
        
     
     }
@@ -78,7 +78,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     
  
     
-    //adds i new edit cell with text title, text and picture
+    //adds and save a new edit cell with text title, text and picture
     
     func addSave(){
         
@@ -244,6 +244,8 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     
         
 }
+    //refers to id storyborad name, MapDreamViewController
+    // make a string varibel to address so you can save the address to the string varibel lastsavedlocation
     
     @IBAction func openMap(_ sender: Any) {
         let viewC = self.storyboard?.instantiateViewController(withIdentifier: "MapDreamViewController") as? MapDreamViewController
