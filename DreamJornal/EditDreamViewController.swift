@@ -52,24 +52,25 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             titleEditTextField.text = changingData.value(forKey: "title") as? String
             editTextViewDream.text = (changingData.value(forKey: "editText") as! String)
              lastSavedLocation = changingData.value(forKey: "address") as? String
-           // imageEdit.image = UIImage(data: newDiary.thumb! as Data)
-            
-            
-            //            if let img = newDiary.image {
-            //                self.editImage.image = UIImage(data: img as Data)
-            //            }
-      
+            // retrieving image data from data base and setting to background image
+            imageEdit.image = UIImage(data: changingData.value(forKey: "thumb") as? Data ?? Data())
      
         }
     
-     
-        if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
-            //newDiary.images = jpegData
-            changingData.setValue(jpegData, forKey: "thumb")
-            changingData.setValue(jpegData, forKey: "images")
-            
-        }
-       
+        // imageEdit.image = UIImage(data: newDiary.thumb! as Data)
+        
+        
+        //            if let img = newDiary.image {
+        //                self.editImage.image = UIImage(data: img as Data)
+        //            }
+        
+//        if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+//            //newDiary.images = jpegData
+//            changingData.setValue(jpegData, forKey: "thumb")
+//            changingData.setValue(jpegData, forKey: "images")
+//
+//        }
+//
     
     }
     
@@ -212,47 +213,39 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     //update and save in editviewontroller
     func updateSave(){
         
-        
-        let newDiary = DreamDiaryCoreData(context: appDelegate.persistentContainer.viewContext)
-        
-        newDiary.title = titleEditTextField.text ?? ""
-        newDiary.editText = editTextViewDream.text ?? ""
-        
-        
-        if lastSavedLocation != nil {
-            newDiary.address = lastSavedLocation
-        }
-        
-        if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
-            newDiary.images = jpegData
-            newDiary.thumb = jpegData
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             
-        }
-        
-//        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-//
-//            //                    changingData.title = titleEditTextField.text
-//            changingData.setValue(titleEditTextField.text, forKey: "title")
-//            changingData.setValue(editTextViewDream.text, forKey: "editText")
-//
-//            imageEdit.image = UIImage(data: changingData.value(forKey: "thumb") as? Data ?? Data())
-//            changingData.setValue(lastSavedLocation, forKey: "address")
-//
-//            appDelegate.saveContext()
-//
-        
+            //                    changingData.title = titleEditTextField.text
+            changingData.setValue(titleEditTextField.text, forKey: "title")
+            changingData.setValue(editTextViewDream.text, forKey: "editText")
             
-                //let dreamImg = newDiary.images
-           // imageEdit.image = UIImage(data: (dreamImg as? Data)!)
-           // if let img = newDiary.images {
-             //                  self.imageEdit.image = UIImage(data: img as Data)
-               //            }
+            //let dreamImg = newDiary.images
+            
+            // imageEdit.image = UIImage(data: (dreamImg as? Data)!)
+            // if let img = newDiary.images {
+            //                  self.imageEdit.image = UIImage(data: img as Data)
+            //            }
             //changingData.setValue(imageEdit, forKey: "images")
-            // retrieving image data from data base and setting to background image
-       
+            
+            
+            if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+                //newDiary.images = jpegData
+                changingData.setValue(jpegData, forKey: "thumb")
+                changingData.setValue(jpegData, forKey: "images")
+                
+            }
+            
+            
+            changingData.setValue(lastSavedLocation, forKey: "address")
+            
+            appDelegate.saveContext()
+            
+            
+            
+            
+        }
         
-    }
-
+        
         
 }
     //refers to id storyborad name, MapDreamViewController
@@ -267,8 +260,9 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
        viewC?.delegate = self
        self.navigationController?.pushViewController(viewC!, animated: true)
   }
-    
-    
+
+}
+
 
 
 //extens location selcted delegate frpm editViewController
