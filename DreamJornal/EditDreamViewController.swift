@@ -26,6 +26,8 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     var new: DreamDiaryCoreData? = nil
     
     var dreamArray: [DreamDiaryCoreData] = []
+    
+    var imageS : [DreamDiaryCoreData] = []
 
        var i = 0
    
@@ -37,6 +39,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     
         
         
+      //  imagen.image = UIImage(data: imagenLugar.imagenes! as Data)
         
         titleEditTextField.delegate = self
         editTextViewDream.delegate = self
@@ -49,7 +52,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             titleEditTextField.text = changingData.value(forKey: "title") as? String
             editTextViewDream.text = (changingData.value(forKey: "editText") as! String)
              lastSavedLocation = changingData.value(forKey: "address") as? String
-            
+           // imageEdit.image = UIImage(data: newDiary.thumb! as Data)
             
             
             //            if let img = newDiary.image {
@@ -60,7 +63,12 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
         }
     
      
-    
+        if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+            //newDiary.images = jpegData
+            changingData.setValue(jpegData, forKey: "thumb")
+            changingData.setValue(jpegData, forKey: "images")
+            
+        }
        
     
     }
@@ -89,8 +97,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
             
             newDiary.title = titleEditTextField.text ?? ""
             newDiary.editText = editTextViewDream.text ?? ""
-            
-            
+         
             if lastSavedLocation != nil {
                 newDiary.address = lastSavedLocation
             }
@@ -122,7 +129,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
 //                    navigationController?.popViewController(animated: true)
 //                }
 //            }
-//
+   
             
             appDelegate.saveContext()
             navigationController?.popViewController(animated: true)
@@ -205,43 +212,47 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
     //update and save in editviewontroller
     func updateSave(){
         
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+        
+        let newDiary = DreamDiaryCoreData(context: appDelegate.persistentContainer.viewContext)
+        
+        newDiary.title = titleEditTextField.text ?? ""
+        newDiary.editText = editTextViewDream.text ?? ""
+        
+        
+        if lastSavedLocation != nil {
+            newDiary.address = lastSavedLocation
+        }
+        
+        if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
+            newDiary.images = jpegData
+            newDiary.thumb = jpegData
             
-            //                    changingData.title = titleEditTextField.text
-            changingData.setValue(titleEditTextField.text, forKey: "title")
-            changingData.setValue(editTextViewDream.text, forKey: "editText")
+        }
+        
+//        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+//
+//            //                    changingData.title = titleEditTextField.text
+//            changingData.setValue(titleEditTextField.text, forKey: "title")
+//            changingData.setValue(editTextViewDream.text, forKey: "editText")
+//
+//            imageEdit.image = UIImage(data: changingData.value(forKey: "thumb") as? Data ?? Data())
+//            changingData.setValue(lastSavedLocation, forKey: "address")
+//
+//            appDelegate.saveContext()
+//
+        
             
                 //let dreamImg = newDiary.images
-                
            // imageEdit.image = UIImage(data: (dreamImg as? Data)!)
-                
-            
-           
            // if let img = newDiary.images {
              //                  self.imageEdit.image = UIImage(data: img as Data)
                //            }
             //changingData.setValue(imageEdit, forKey: "images")
-            
-            
-            if let image = imageEdit.image, let jpegData = image.jpegData(compressionQuality: 0.8)  {
-                //newDiary.images = jpegData
-                changingData.setValue(jpegData, forKey: "thumb")
-                changingData.setValue(jpegData, forKey: "images")
-                
-                }
-            changingData.setValue(lastSavedLocation, forKey: "address")
-            
-            appDelegate.saveContext()
-          
-        
-        
+            // retrieving image data from data base and setting to background image
+       
         
     }
-    
-    
-    
 
-    
         
 }
     //refers to id storyborad name, MapDreamViewController
@@ -252,12 +263,15 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
         if lastSavedLocation != nil{
             viewC!.lastSaveLocation = self.lastSavedLocation
         }
-        viewC?.delegate = self
-        self.navigationController?.pushViewController(viewC!, animated: true)
-    }
+       //pushes back to editiewcontroller when its saved
+       viewC?.delegate = self
+       self.navigationController?.pushViewController(viewC!, animated: true)
+  }
     
     
 }
+
+//extens location selcted delegate frpm editViewController
 
 extension EditDreamViewController:LocationSelectedDelegate {
     func selectedLocation(address: String) {

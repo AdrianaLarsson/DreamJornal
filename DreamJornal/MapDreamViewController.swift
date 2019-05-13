@@ -102,9 +102,11 @@ class MapDreamViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         
         
     }
+    //show and points location with placemark and show km distance
     
     func pointThatLocation(){
         var distance = 500.0
+        
         CLGeocoder().geocodeAddressString(address, completionHandler: {(placemarks, error) in
             if let placeM = placemarks {
                 let placemark = placeM[0]
@@ -236,6 +238,10 @@ class MapDreamViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     func addressSaving(){
     
       delegate?.selectedLocation(address: addressMap.text ?? "")
+        
+        
+        
+        
         
         
 //        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
