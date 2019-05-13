@@ -269,7 +269,7 @@ class EditDreamViewController: UIViewController,UIImagePickerControllerDelegate,
   }
     
     
-}
+
 
 //extens location selcted delegate frpm editViewController
 
